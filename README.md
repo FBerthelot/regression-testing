@@ -26,7 +26,7 @@ In the following examples, let's imagine that we want to build a test harness fo
 
 This package will help you generate tests, but it needs a few inputs from you:
 
- - We need to know how to generate an initial model for your program: your job is to create a generator using the [`elm/random` package](https://package.elm-lang.org/packages/elm/random/latest/). Let's see an example for the counter program:
+ - First input, the initial model of your program: your job is to create a generator using the [`elm/random` package](https://package.elm-lang.org/packages/elm/random/latest/). Let's see an example for the counter program:
    
    ```elm
    import Random exposing (Generator)
@@ -45,7 +45,7 @@ This package will help you generate tests, but it needs a few inputs from you:
    modelGenerator : Generator Model
    modelGenerator = Random.contant 0
    ```   
- - We need to know how to generate a message for your application:
+ - Now, generate a message for your application:
    ```elm
    import Counter exposing (Msg(..))
    import Random exposing (Generator)
@@ -55,7 +55,7 @@ This package will help you generate tests, but it needs a few inputs from you:
    
    -- If some messages should be more frequent than others, you can use Random.weighted.
    ```
- - We need to know how to encode your model and your messages into JSON to save them, using the [`elm/json` package](https://package.elm-lang.org/packages/elm/json/latest/). 
+ - Encode your model and your messages into JSON to save them, using the [`elm/json` package](https://package.elm-lang.org/packages/elm/json/latest/). 
    ```elm
    import Counter exposing (Model, Msg(..))
    import Json.Encode as Encode
@@ -73,7 +73,7 @@ This package will help you generate tests, but it needs a few inputs from you:
    
    -- You can find more complex examples in the "examples" folder
    ```
- - We need a port to get back the generated tests:
+ - Open a port to give access to the generated tests:
    ```elm
    port module RegressionTestGenerator exposing (main)
    import Json.Encode as Encode
